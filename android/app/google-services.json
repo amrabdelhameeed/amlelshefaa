@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "939256993757",
+    "project_id": "aml-elshefaa",
+    "storage_bucket": "aml-elshefaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939256993757:android:b469208e420404d685c834",
+        "android_client_info": {
+          "package_name": "com.example.amlelshefaa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939256993757-80apmqk1ig3v31v4dihk14tdcnv6ns5h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.amlelshefaa",
+            "certificate_hash": "f8f303802182dff6fcab55f1ff0bea8d19e3efd7"
+          }
+        },
+        {
+          "client_id": "939256993757-8hrlfgc571cp45ta3qbiv6c94md4bi2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9Q13v8EzrvLxowt-Xa0eDI8G7v3DcZ8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939256993757-8hrlfgc571cp45ta3qbiv6c94md4bi2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
