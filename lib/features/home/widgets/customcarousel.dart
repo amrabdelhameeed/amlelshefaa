@@ -1,3 +1,4 @@
+import 'package:amlelshefaa/core/models/doctor.dart';
 import 'package:amlelshefaa/core/models/doctor_model.dart';
 import 'package:amlelshefaa/features/home/widgets/doctorItem.dart';
 
@@ -7,11 +8,12 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 
 class CustomCarousel extends StatelessWidget {
-  final List<DoctorModel> listOfDoctorModel;
+  final List<Doctor> listOfDoctorModel;
   const CustomCarousel({Key? key, required this.listOfDoctorModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(listOfDoctorModel.length);
     return ConditionalBuilder(
       condition: listOfDoctorModel.isNotEmpty,
       builder: (context) => CarouselSlider.builder(

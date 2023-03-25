@@ -56,12 +56,17 @@ class _ChatScreenState extends State<ChatScreen> {
             },
           ),
           Container(
-            decoration: const BoxDecoration(border: Border(top: BorderSide(color: Colors.black, width: 2))),
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+            // decoration: const BoxDecoration(border: Border(top: BorderSide(color: Colors.black, width: 2))),
             child: Row(
               children: [
                 Expanded(
                     child: TextFormField(
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                    disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                     hintText: "Type Text",
                   ),
                   controller: textEditingController,
@@ -78,7 +83,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         });
                       }
                     },
-                    icon: const Icon(Icons.abc)),
+                    icon: const Icon(Icons.send)),
               ],
             ),
           )

@@ -1,3 +1,8 @@
+import 'dart:math';
+
+import 'package:amlelshefaa/core/widgets/space.dart';
+import 'package:amlelshefaa/features/home/widgets/chat_screeen.dart';
+
 import '../../core/constants/strings.dart';
 import '../../core/utils/app_colors.dart';
 import '../../core/widgets/default_form_button.dart';
@@ -91,13 +96,13 @@ class SignInUPScreen extends StatelessWidget {
 
                   /// Title
                   const Text(
-                    'Welocome to \nAml Elshefaa.',
+                    'Welocome to \nAml Elshefaa',
                     style: TextStyle(
                       fontStyle: FontStyle.normal,
                       fontSize: 38,
                       color: Color(0xfff5b53f),
                       letterSpacing: 0.36,
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w700,
                       height: 1.1111111111111112,
                     ),
                     textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: false),
@@ -120,17 +125,53 @@ class SignInUPScreen extends StatelessWidget {
                   SizedBox(
                     height: SizeConfig.screenHeight! / 68,
                   ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: DefaultFormButton(
+                          fontSize: 15,
+                          fillColor: AppColors.secondaryColor,
+                          textColor: AppColors.mainColor,
+                          text: "Sign Up As Doctor",
+                          onPressed: () {
+                            Navigator.pushNamed(context, signUpAsDoctorScreen);
+                          },
+                        ),
+                      ),
+                      const HorizontalSpace(),
+                      Expanded(
+                        child: DefaultFormButton(
+                          fontSize: 15,
+                          fillColor: AppColors.secondaryColor,
+                          textColor: AppColors.mainColor,
+                          text: "Sign Up As Patient",
+                          onPressed: () {
+                            Navigator.pushNamed(context, categoryScreen);
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 18.0),
+                    child: DefaultFormButton(
+                      // fillColor: AppColors.secondaryColor,
+                      textColor: AppColors.secondaryColor,
+                      isBorder: true,
+                      text: "Go To Chat Screen",
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return ChatScreen(name: "anonymous ${Random().nextInt(300)}");
+                          },
+                        ));
+                      },
+                    ),
+                  )
 
                   /// Sign Up Button
-                  DefaultFormButton(
-                    fontSize: 21,
-                    fillColor: AppColors.secondaryColor,
-                    textColor: AppColors.mainColor,
-                    text: "Sign Up",
-                    onPressed: () {
-                      Navigator.pushNamed(context, categoryScreen);
-                    },
-                  ),
+                  ,
                 ],
               ),
             ),

@@ -3,6 +3,7 @@
 import 'package:amlelshefaa/app_router.dart';
 import 'package:amlelshefaa/bloc/cubit/app_cubit.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,11 +40,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 TextButton(
                     onPressed: () {
                       cubit.logOut().then((value) {
-                        cubit.changeIndex(0);
+                        // cubit.changeIndex(0);
                         navigateAndFinish(context, SignInUPScreen());
                       });
                     },
-                    child: const Text('Log Out')),
+                    child: const Text(
+                      'Log Out',
+                      style: TextStyle(color: AppColors.secondaryColor),
+                    )),
               ],
               backgroundColor: Colors.transparent,
               elevation: 0.0,
@@ -52,67 +56,58 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 size: 32,
               ),
             ),
-            body: ConditionalBuilder(
-              condition: cubit.userModel != null,
-              builder: (context) {
-                return Container(
-                  padding: const EdgeInsetsDirectional.all(10),
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    child: Column(
+            body: Container(
+              padding: const EdgeInsetsDirectional.all(10),
+              width: double.infinity,
+              height: double.infinity,
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              cubit.userModel!.name ?? '',
-                              maxLines: 1,
-                              softWrap: true,
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 28, fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              width: 2,
-                            ),
-                            IconButton(
-                                onPressed: () {
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        TextEditingController controller = TextEditingController();
-                                        return AlertDialog(
-                                          actions: [
-                                            Column(
-                                              children: [
-                                                textFormField(controller: controller..text = cubit.userModel!.name!, keyboardType: TextInputType.name, label: 'Edit Name'),
-                                                TextButton(
-                                                    onPressed: () {
-                                                      cubit.updateName(name: controller.text).then((value) {
-                                                        Navigator.pop(context);
-                                                      });
-                                                    },
-                                                    child: const Text('save'))
-                                              ],
-                                            ),
-                                          ],
-                                        );
-                                      });
-                                },
-                                icon: const Icon(Icons.edit))
-                          ],
+                        Text(
+                          cubit.isDoc! ? cubit.doctor!.name : cubit.userModel!.name!,
+                          maxLines: 1,
+                          softWrap: true,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 28, fontWeight: FontWeight.bold),
                         ),
+                        const SizedBox(
+                          width: 2,
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    TextEditingController controller = TextEditingController();
+                                    return AlertDialog(
+                                      actions: [
+                                        Column(
+                                          children: [
+                                            textFormField(
+                                                controller: controller..text = cubit.isDoc! ? cubit.doctor!.name : cubit.userModel!.name!, keyboardType: TextInputType.name, label: 'Edit Name'),
+                                            TextButton(
+                                                onPressed: () {
+                                                  cubit.updateName(name: controller.text).then((value) {
+                                                    Navigator.pop(context);
+                                                  });
+                                                },
+                                                child: const Text('save'))
+                                          ],
+                                        ),
+                                      ],
+                                    );
+                                  });
+                            },
+                            icon: const Icon(Icons.edit))
                       ],
                     ),
-                  ),
-                );
-              },
-              fallback: (context) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
+                  ],
+                ),
+              ),
             ),
           ),
         );

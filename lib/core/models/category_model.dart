@@ -129,9 +129,11 @@ class CategoryModel {
         categoryName: 'ضمور العضلي العيني البلعومي '),
     CategoryModel(
         isSelected: false,
-        description:
-            "it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms it's the description of dmoor Reloaded 1 of 1486 libraries in 1,647ms Reloaded 1 of 1486 libraries in 1,647ms ",
-        imagePath: 'assets/pictures/dmoor/1_doshien.jpeg',
-        categoryName: 'Dmoor 3dli 8'),
+        description: """اعراض ضمور عضلي بحسب بيكر
+-يصيب عادة الاطفال من الذكور بعد العاشرة من العمر -الاعياء -عدم التوازن -ضعف في عضلات الاطراف العلوية و الرقبة -ضعف في عضلات الاطراف السفلية و الحوض مما يسبب : -عدم القدرة على السير و تزداد سوءا مع الوقت -التعرض للوقوع المتكرر -عدم القدرة على المشي خصوصا بعد سن الخامسة والعشرين -ضمور في العضلات -مشاكل في التنفس.و
+
+""",
+        imagePath: 'assets/pictures/dmoor/dmoor_type8.jpeg',
+        categoryName: 'ضمور بيكر'),
   ];
 }

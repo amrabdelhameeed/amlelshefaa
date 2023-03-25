@@ -17,7 +17,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/utils/app_colors.dart';
-import 'widgets/customShape.dart';
+import 'widgets/custom_shape.dart';
 import 'widgets/customcarousel.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -44,7 +44,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AuthCubit>.value(
-        value: authCubit!,
+        value: authCubit!
+          ..getDoctorsByCategory()
+          ..getExercises(),
         child: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {},
           builder: (context, state) {
@@ -87,11 +89,11 @@ class HomeScreen extends StatelessWidget {
                                   text: 'Doctors',
                                 ),
                                 const VerticalSpace(value: 2),
-                                CustomCarousel(
-                                  listOfDoctorModel: [
-                                    for (var i = 0; i < 10; i++)
-                                      DoctorModel(name: "name$i", email: "email$i", address: "addressasdkjbnask$i", imagePath: "assets/pictures/dmoor/2_elwagh_el3addi.jpg", categoryName: "")
-                                  ],
+                                BlocBuilder<AuthCubit, AuthState>(
+                                  builder: (context, state) {
+                                    final cubit = AuthCubit.get(context);
+                                    return CustomCarousel(listOfDoctorModel: cubit.doctors);
+                                  },
                                 )
                               ],
                             ),
@@ -99,10 +101,16 @@ class HomeScreen extends StatelessWidget {
                           const VerticalSpace(value: 1),
                           defaultHeader(text: "Exercises"),
                           const VerticalSpace(value: 1),
-                          CustomListView(listOfDoctors: [
-                            for (var i = 0; i < 10; i++)
-                              DoctorModel(name: "name$i", email: "email$i", address: "addressasdkjbnask$i", imagePath: "assets/pictures/dmoor/2_elwagh_el3addi.jpg", categoryName: "")
-                          ]),
+                          BlocBuilder<AuthCubit, AuthState>(
+                            builder: (context, state) {
+                              final cubit = AuthCubit.get(context);
+                              if (cubit.exercises.isNotEmpty) {
+                                return CustomListView(exercises: cubit.exercises);
+                              } else {
+                                return Text("There is No Exercises");
+                              }
+                            },
+                          ),
                           const SizedBox(
                             height: 10,
                           ),

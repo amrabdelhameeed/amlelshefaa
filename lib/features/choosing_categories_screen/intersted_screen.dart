@@ -1,6 +1,5 @@
 import '../../core/constants/strings.dart';
 import '../../core/models/category_model.dart';
-import '../../core/utils/app_colors.dart';
 import '../../core/utils/size_config.dart';
 import '../../core/widgets/default_form_button.dart';
 import 'widgets/category_item.dart';

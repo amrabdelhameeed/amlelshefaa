@@ -29,12 +29,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   double shadow = 0;
 
   List<BoardingModel> boarding = [
-    BoardingModel(image: 'assets/pictures/on_boarding/on_boarding_1.png', title: 'Over 20+ book from all genders', body: 'We\'ve successfully connecting readers across egypt'),
-    BoardingModel(
-        image: 'assets/pictures/on_boarding/on_boarding_2.png',
-        title: 'Sell or trade your books with other readers',
-        body: 'If you\'re looking to downsize, sell or recycle books, Borrowed Books can help.'),
-    BoardingModel(image: 'assets/pictures/on_boarding/on_boarding_3.png', title: 'Starting now ', body: 'Let\'s Go'),
+    BoardingModel(image: 'assets/pictures/on_boarding/on_boarding_1.png', title: 'تكلم مع اكثر من +10 دكتور في نوع الضمور الخاص بك', body: 'دكاترة علي اعلي مستوي في مصر'),
+    BoardingModel(image: 'assets/pictures/on_boarding/on_boarding_2.png', title: 'تكلم مع جميع المرضي', body: 'اجعل رسائلك بناءة'),
+    BoardingModel(image: 'assets/pictures/on_boarding/on_boarding_3.png', title: 'ابدأ الان ', body: 'هيا بنا'),
   ];
 
   bool isLast = false;

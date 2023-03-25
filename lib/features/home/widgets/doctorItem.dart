@@ -1,3 +1,4 @@
+import 'package:amlelshefaa/core/models/doctor.dart';
 import 'package:amlelshefaa/core/models/doctor_model.dart';
 import 'package:amlelshefaa/core/utils/size_config.dart';
 
@@ -6,13 +7,13 @@ import 'package:flutter/material.dart';
 
 class DoctorItem extends StatelessWidget {
   const DoctorItem({Key? key, required this.doctorModel}) : super(key: key);
-  final DoctorModel doctorModel;
+  final Doctor doctorModel;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        Navigator.pushNamed(context, bookScreen, arguments: doctorModel);
+        Navigator.pushNamed(context, doctorScreen, arguments: doctorModel);
       },
       child: SizedBox(
         height: SizeConfig.screenHeight! / 3,
@@ -32,14 +33,15 @@ class DoctorItem extends StatelessWidget {
                       spreadRadius: 2,
                     )
                   ],
-                  image: doctorModel.imagePath != ""
+                  image: doctorModel.photoUrl != ""
                       ? DecorationImage(
-                          image: AssetImage(
-                            doctorModel.imagePath,
+                          image: NetworkImage(
+                            doctorModel.photoUrl,
                           ),
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                         )
                       : const DecorationImage(
+                          fit: BoxFit.cover,
                           image: AssetImage(
                             'assets/pictures/background/b.png',
                           ),
@@ -57,7 +59,7 @@ class DoctorItem extends StatelessWidget {
               maxLines: 1,
             ),
             Text(
-              doctorModel.address.substring(10),
+              doctorModel.category,
               style: TextStyle(color: Colors.grey[500], fontSize: 12, fontWeight: FontWeight.w300),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

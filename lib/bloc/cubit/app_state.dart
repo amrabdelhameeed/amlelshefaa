@@ -5,6 +5,22 @@ abstract class AuthState {}
 
 class AuthInitial extends AuthState {}
 
+class RequestSuccessState extends AuthState {}
+
+class RequestErrorState extends AuthState {
+  final String error;
+
+  RequestErrorState(this.error);
+}
+
+class GetRequestsSuccessState extends AuthState {}
+
+class GetRequestsErrorState extends AuthState {
+  final String error;
+
+  GetRequestsErrorState(this.error);
+}
+
 class LoginInitialState extends AuthState {}
 
 class LoginLoadingState extends AuthState {}
@@ -33,6 +49,14 @@ class RegisterErrorState extends AuthState {
   final String error;
 
   RegisterErrorState(this.error);
+}
+
+class UploadExerciseSuccess extends AuthState {}
+
+class UploadExerciseError extends AuthState {
+  final String error;
+
+  UploadExerciseError(this.error);
 }
 
 class TechnicalUserSwitchState extends AuthState {}

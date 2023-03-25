@@ -2,7 +2,7 @@ import '../utils/size_config.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalSpace extends StatelessWidget {
-  const HorizontalSpace({Key? key, this.value}) : super(key: key);
+  const HorizontalSpace({Key? key, this.value = 1}) : super(key: key);
   final double? value;
   @override
   Widget build(BuildContext context) {

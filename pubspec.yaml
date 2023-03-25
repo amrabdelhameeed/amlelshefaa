@@ -19,6 +19,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  image_picker: ^0.8.7
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
   url_launcher: ^6.1.7

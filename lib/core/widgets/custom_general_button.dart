@@ -18,7 +18,7 @@ class CustomGeneralButton extends StatelessWidget {
         child: Center(
             child: Text(
           text ?? "Next",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         )),
       ),
     );

@@ -1,3 +1,13 @@
+import 'package:amlelshefaa/core/models/doctor.dart';
+import 'package:amlelshefaa/core/models/exercise_model.dart';
+import 'package:amlelshefaa/core/models/fake_screen_atg.dart';
+import 'package:amlelshefaa/features/authentication/choose_photo/choose_photo_screen.dart';
+import 'package:amlelshefaa/features/authentication/exercise/screens/upload_exercise.dart';
+import 'package:amlelshefaa/features/authentication/sign_up/sign_up_as_doctor.dart';
+import 'package:amlelshefaa/features/fake_payment.dart/screens/fake_payment.dart';
+import 'package:amlelshefaa/screens/doctor_screen.dart';
+import 'package:amlelshefaa/screens/exercise_screen.dart';
+
 import 'bloc/cubit/app_cubit.dart';
 import 'core/constants/strings.dart';
 import 'core/models/book_model.dart';
@@ -45,20 +55,33 @@ class AppRouter {
           return BlocProvider<AuthCubit>.value(
             value: authCubit!
               // ..getCurrentFirestoreUser()
-              ..getHorrorBooks()
-              ..getTechnologyBooks()
-              ..getFantasyBooks()
-              ..getnovelBooks()
-              ..getfictionBooks()
-              ..getbiographyBooks(),
+              ..getCurrentFirestoreUser()
+              ..goToHome(),
             child: HomeLayout(),
           );
         });
-
+      case fakePaymentScreen:
+        final fake = settings.arguments as FakeScreenArgument;
+        return MaterialPageRoute(builder: (_) {
+          return BlocProvider<AuthCubit>.value(
+            value: authCubit!,
+            child: FakePriceScreen(
+              fakeScreenArgument: fake,
+            ),
+          );
+        });
+      case exerciseScreen:
+        final exercise = settings.arguments as ExerciseModel;
+        return MaterialPageRoute(builder: (_) {
+          return BlocProvider<AuthCubit>.value(
+            value: authCubit!,
+            child: ExerciseScreen(exerciseModel: exercise),
+          );
+        });
       case mainScreen:
         return MaterialPageRoute(builder: (_) {
           return BlocProvider<AuthCubit>.value(
-            value: authCubit!..getCurrentFirestoreUser(),
+            value: authCubit!,
             child: HomeScreen(),
           );
         });
@@ -109,6 +132,37 @@ class AppRouter {
           return BlocProvider<AuthCubit>.value(
             value: authCubit!,
             child: SigninPage(),
+          );
+        });
+      case doctorScreen:
+        return MaterialPageRoute(builder: (_) {
+          final arg = settings.arguments as Doctor;
+          return BlocProvider<AuthCubit>.value(
+            value: authCubit!,
+            child: DoctorScreen(
+              doctorModel: arg,
+            ),
+          );
+        });
+      case uploadExerciseScreen:
+        return MaterialPageRoute(builder: (_) {
+          return BlocProvider<AuthCubit>.value(
+            value: authCubit!,
+            child: UploadExercise(),
+          );
+        });
+      case choosePhotoScreen:
+        return MaterialPageRoute(builder: (_) {
+          return BlocProvider<AuthCubit>.value(
+            value: authCubit!,
+            child: ChoosePhotoScreen(),
+          );
+        });
+      case signUpAsDoctorScreen:
+        return MaterialPageRoute(builder: (_) {
+          return BlocProvider<AuthCubit>.value(
+            value: authCubit!,
+            child: SignUpAsDoctorPage(),
           );
         });
       case categoryScreen:

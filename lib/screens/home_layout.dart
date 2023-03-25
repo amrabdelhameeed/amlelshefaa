@@ -1,3 +1,5 @@
+import 'package:amlelshefaa/core/constants/strings.dart';
+import 'package:amlelshefaa/core/utils/app_colors.dart';
 import 'package:amlelshefaa/core/utils/size_config.dart';
 
 import '../bloc/cubit/app_cubit.dart';
@@ -15,14 +17,26 @@ class HomeLayout extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(builder: (context, state) {
       var cubit = AuthCubit.get(context);
       return Scaffold(
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: cubit.isDoc != null && cubit.isDoc!
+              ? FloatingActionButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, uploadExerciseScreen);
+                  },
+                  backgroundColor: AppColors.secondaryColor,
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ))
+              : SizedBox.shrink(),
           bottomNavigationBar: CurvedNavigationBar(
+            color: Colors.amber,
             index: cubit.curIndex,
             height: 60.0,
             items: const <Widget>[
               Icon(Icons.home_outlined, size: 30, color: Colors.white),
               Icon(Icons.perm_identity, size: 30, color: Colors.white),
             ],
-            color: Colors.orangeAccent,
             // buttonBackgroundColor: Colors.black,
             backgroundColor: const Color(0xFFF5F1D7),
             animationCurve: Curves.easeInOut,
@@ -32,7 +46,11 @@ class HomeLayout extends StatelessWidget {
             },
             letIndexChange: (index) => true,
           ),
-          body: cubit.screenWidget[cubit.curIndex]);
+          body: cubit.isDoc != null
+              ? (!cubit.isDoc! ? cubit.screenWidget[cubit.curIndex] : cubit.screenWidgetDoctor[cubit.curIndex])
+              : Center(
+                  child: CircularProgressIndicator(),
+                ));
     });
   }
 }

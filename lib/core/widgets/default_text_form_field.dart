@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class DefaultTextFormField extends StatefulWidget {
   DefaultTextFormField({
     Key? key,
+    this.maxLines = 1,
     required this.hint,
     this.controller,
     this.inputType,
@@ -18,7 +19,7 @@ class DefaultTextFormField extends StatefulWidget {
   final bool isPassword;
   final String? validationText;
   double radius;
-
+  final int maxLines;
   @override
   State<DefaultTextFormField> createState() => _DefaultTextFormFieldState();
 }
@@ -37,6 +38,7 @@ class _DefaultTextFormFieldState extends State<DefaultTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: widget.maxLines,
       controller: widget.controller,
       obscureText: isPass,
       keyboardType: widget.inputType,
