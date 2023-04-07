@@ -1,9 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amlelshefaa">
         <uses-permission android:name="android.permission.INTERNET"/>
-
    <application
-        android:label="amlelshefaa"
+        android:label="امل الشفاء"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

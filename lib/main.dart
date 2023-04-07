@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.orange),
       initialRoute: initialRoute,
       onGenerateRoute: appRouter.generateRoutes,
-      title: 'Aml Elshefaa',
+      title: 'امل الشفاء',
       // home: HomeLayout(),
     );
   }

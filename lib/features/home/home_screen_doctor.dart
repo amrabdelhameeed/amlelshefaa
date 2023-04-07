@@ -117,11 +117,14 @@ class HomeScreenDoctor extends StatelessWidget {
                                                           ),
                                                           Expanded(
                                                               child: Padding(
-                                                            padding: EdgeInsets.all(5),
+                                                            padding: EdgeInsets.all(1),
                                                             child: TextButton(
-                                                              child: Text(
-                                                                "View User Information",
-                                                                style: TextStyle(color: Colors.white),
+                                                              child: FittedBox(
+                                                                fit: BoxFit.scaleDown,
+                                                                child: Text(
+                                                                  "User Information",
+                                                                  style: TextStyle(color: Colors.white, fontSize: 12),
+                                                                ),
                                                               ),
                                                               style: ElevatedButton.styleFrom(backgroundColor: AppColors.secondaryColor),
                                                               onPressed: () {
@@ -134,6 +137,7 @@ class HomeScreenDoctor extends StatelessWidget {
                                                                       builder: (context, setState) {
                                                                         return AlertDialog(
                                                                           content: Column(
+                                                                            textDirection: TextDirection.rtl,
                                                                             mainAxisSize: MainAxisSize.min,
                                                                             children: [
                                                                               Text("name : " + patient.name!),
@@ -154,6 +158,7 @@ class HomeScreenDoctor extends StatelessWidget {
                                                               },
                                                             ),
                                                           )),
+                                                          VerticalSpace(value: 1)
                                                         ],
                                                       );
                                                     }

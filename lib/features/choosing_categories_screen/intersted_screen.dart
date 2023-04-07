@@ -17,10 +17,10 @@ class CategoryScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: SizeConfig.defaultSize! * 8,
+                height: SizeConfig.defaultSize! * 2,
               ),
               Text(
-                'What is your Dmoor Type ?',
+                'What is your dystrophy Type ?',
                 style: Theme.of(context).textTheme.headline4!.copyWith(
                       color: Colors.black,
                     ),
@@ -28,9 +28,9 @@ class CategoryScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text('Please enter your type to recommend your doctors', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, color: Colors.grey)),
+              Text('Please enter your type to recommend you a doctors !', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, color: Colors.grey)),
               const SizedBox(
-                height: 20,
+                height: 0,
               ),
               StatefulBuilder(
                 builder: (context, setState) {

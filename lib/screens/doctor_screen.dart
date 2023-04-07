@@ -121,7 +121,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
                                     child: Text(
                                       widget.doctorModel.address,
                                       textAlign: TextAlign.center,
-                                      maxLines: 1,
+                                      maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w700),
                                     ),
